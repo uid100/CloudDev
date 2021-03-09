@@ -9,5 +9,6 @@ namespace OfficeWires.Controllers
         {
             return View(WebApp.GetWebApps());
         }
+        public ViewResult Index1() => View();
     }
 }

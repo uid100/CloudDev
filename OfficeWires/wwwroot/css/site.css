@@ -52,3 +52,7 @@
     background-color: #fff;
     border-bottom: 0 solid transparent;
 }
+
+.site-description {
+    overflow-wrap: break-word;
+}

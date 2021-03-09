@@ -6,6 +6,11 @@
       "provider": "unpkg",
       "library": "bootstrap@4.6.0",
       "destination": "wwwroot/bootstrap/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "jquery@latest",
+      "destination": "wwwroot/jquery/"
     }
   ]
 }
