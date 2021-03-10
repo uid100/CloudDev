@@ -7,8 +7,8 @@ web application to provide authenticated uses quick access to currently active d
 status updates. 
 
 ## TOC
-* [Updates](Updates)
-* [Technologies](Technologies)
+* [Updates](#Updates)
+* [Technologies](#Technologies)
 
 -------------------
 
