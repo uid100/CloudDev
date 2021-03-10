@@ -20,6 +20,7 @@ status updates.
    - Migrated Mock data source to use sqlite
    - Published to no-cost Azure web service, including serverless database
 
+   [TOC](#TOC)
 -------------------
 
 ## Technologies
@@ -34,6 +35,7 @@ status updates.
 * Identity framework
 * Microsoft Azure
 
+   [TOC](#TOC)
 -------------------
 
 (c) 2021 OfficeWires  -  daniel.sullivan@OfficeWires.com
