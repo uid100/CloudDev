@@ -6,6 +6,20 @@ The [_OfficeWiresApp_](https://officewires.azurewebsites.net/) is itself a cloud
 web application to provide authenticated uses quick access to currently active development projects and their 
 status updates. 
 
+## TOC
+* [Updates](Updates)
+* [Technologies](Technologies)
+
+-------------------
+
+## Updates
+### 9 Mar 2021
+   - Initial build.
+   - Added bootstrap card styling to views
+   - Created Mock data within Models folder
+   - Migrated Mock data source to use sqlite
+   - Published to no-cost Azure web service, including serverless database
+
 -------------------
 
 ## Technologies
