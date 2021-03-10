@@ -3,7 +3,8 @@
 ASP.NET Cloud Application Projects
 
 The [_OfficeWiresApp_](https://officewires.azurewebsites.net/) is itself a cloud-hosted ASP.NET proof-of-concept 
-web application to provide authenticated quick access to currently active development projects and their status updates. 
+web application to provide authenticated uses quick access to currently active development projects and their 
+status updates. 
 
 -------------------
 
@@ -16,6 +17,7 @@ web application to provide authenticated quick access to currently active develo
 * html5 / css
 * Bootstrap 4  w/ jQuery
 * SQLite
+* Identity framework
 * Microsoft Azure
 
 -------------------
