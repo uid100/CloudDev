@@ -42,4 +42,23 @@ status updates.
    
 -------------------
 
+   * CheckedIn (canvas)
+   * Findme (geolocate)
+   * RateCalculator (gsa)
+   * TechDrill (various)
+   * BisectionComplexity (complexity)
+   * EmailGenerator (smtp)
+   * Graphics (css)
+   * text (sms)
+   * hadToBeThere (zoom)
+   * plannedIn
+   * billing
+
+
+
+   [TOC](#TOC)
+   
+-------------------
+
+
 (c) 2017-2021 OfficeWires  -  daniel.sullivan@OfficeWires.com
