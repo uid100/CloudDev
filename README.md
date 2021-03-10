@@ -25,17 +25,17 @@ status updates.
 
 ## Technologies
 
-* C#
-* ASP.NET MVC 3
-* (MVC) Razor View(s)
-* entity framework
-* html5 / css
-* Bootstrap 4  w/ jQuery
-* SQLite
-* Identity framework
-* Microsoft Azure
+   * C#
+   * ASP.NET MVC 3
+   * (MVC) Razor View(s)
+   * entity framework
+   * html5 / css
+   * Bootstrap 4  w/ jQuery
+   * SQLite
+   * Identity framework
+   * Microsoft Azure
 
    [TOC](#TOC)
 -------------------
 
-(c) 2021 OfficeWires  -  daniel.sullivan@OfficeWires.com
+(c) 2017-2021 OfficeWires  -  daniel.sullivan@OfficeWires.com
