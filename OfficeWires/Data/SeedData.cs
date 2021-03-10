@@ -1,23 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Data.Sqlite;
+using OfficeWires.Models;
 
-namespace OfficeWires.Models
+namespace OfficeWires.Data
 {
-    [Table("WebApps")]
-    public class WebApp
+    public static class SeedData
     {
-        [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string URL { get; set; }
-        public string SourceLoc { get; set; }
-        public bool IsRunning { get; set; } = false;
-
-        public static WebApp[] GetWebApps()
+        public static void DbInit(IApplicationBuilder app)
         {
-            return new WebApp[] {
-                new WebApp { 
+            WebAppDbContext context = app.ApplicationServices.CreateScope()
+                        .ServiceProvider.GetRequiredService<WebAppDbContext>();
+
+            context.Database.EnsureCreated();
+            if (context.WebApps.Any()) return;
+
+            var apps = new WebApp[] {
+                new WebApp {
                     Name = "Locate",
                     Description = "GoogleMaps integration demonstration webapp. Display the user's browser location if allowed, or IP location",
                     URL = "https://findme.azurewebsites.net",
@@ -26,7 +26,7 @@ namespace OfficeWires.Models
                 new WebApp
                 {
                     Name = "RateCalculator",
-                    Description = "Find and display GSA per diem rates and other user location details for contract calculations",                 
+                    Description = "Find and display GSA per diem rates and other user location details for contract calculations",
                 },
                 new WebApp
                 {
@@ -38,6 +38,9 @@ namespace OfficeWires.Models
                     Description = "Engage Distance Learning students with online prompts. Generates emailed reports and requires integration with Canvas API."
                 },
             };
+
+            foreach (WebApp a in apps) context.WebApps.Add(a);
+            context.SaveChanges();
         }
     }
 }

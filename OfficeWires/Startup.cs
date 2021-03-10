@@ -1,19 +1,26 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
+using OfficeWires.Data;
 
 namespace OfficeWires
 {
     public class Startup
     {
+        public Startup(IConfiguration config)
+        {
+            Config = config;
+        }
+        public IConfiguration Config { get; }
+
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<WebAppDbContext>(
+                    opt => opt.UseSqlite(Config.GetConnectionString("DefaultConnection"))
+            );
             services.AddControllersWithViews();
         }
 
@@ -31,6 +38,8 @@ namespace OfficeWires
             {
                 endpoints.MapDefaultControllerRoute();
             });
+
+            SeedData.DbInit(app);
         }
     }
 }

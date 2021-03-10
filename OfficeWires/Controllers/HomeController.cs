@@ -1,14 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using OfficeWires.Data;
 using OfficeWires.Models;
 
 namespace OfficeWires.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index()
+        private WebAppDbContext _AppDb;
+        public HomeController(WebAppDbContext context)
         {
-            return View(WebApp.GetWebApps());
+            _AppDb = context;
         }
+
+        public ViewResult Index() => View(_AppDb.WebApps.ToArray());
+
         public ViewResult Index1() => View();
     }
 }
