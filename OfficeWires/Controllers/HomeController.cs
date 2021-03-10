@@ -13,7 +13,7 @@ namespace OfficeWires.Controllers
             _AppDb = context;
         }
 
-        public ViewResult Index() => View(_AppDb.WebApps.ToArray());
+        public ViewResult Index() => View(_AppDb.WebApps.OrderBy(a=>a.Name).ToArray());
 
         public ViewResult Index1() => View();
     }
