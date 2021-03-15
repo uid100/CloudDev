@@ -1,0 +1,19 @@
+﻿@model IEnumerable<WebApp>
+
+@{
+    Layout = null;
+}
+
+@{ int row = 0; }
+
+<table>
+
+    @foreach (var w in Model)
+    {
+        string shade = (row++ % 2 == 1) ? "bg-light" : "bg-gray";
+        <tr style="@shade">
+            <td>@w.Name</td>
+        </tr>
+    }
+
+</table>

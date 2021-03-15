@@ -2,15 +2,20 @@
 
 @*ref: https://www.bootdey.com/snippets/view/project-cards*@
 
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Development Solutions";
+}
 
 <div class="container p-0">
     <h1 class="h3 mb-3">Projects</h1>
-
+    
     <div class="row">
         @foreach (var w in Model)
         {
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card" id="@w.Name">
+                    <img src="..." class="card-img-top" alt="..." />
                     <div class="card-header px-4 pt-4">
                         <div class="card-actions float-right">
                             <div class="dropdown show">

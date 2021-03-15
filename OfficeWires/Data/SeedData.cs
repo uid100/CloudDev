@@ -17,6 +17,11 @@ namespace OfficeWires.Data
             if (context.WebApps.Any()) return;
 
             var apps = new WebApp[] {
+                new WebApp
+                {
+                    Name = "OfficeWires",
+                    Description = ""
+                },
                 new WebApp {
                     Name = "Locate",
                     Description = "GoogleMaps integration demonstration webapp. Display the user's browser location if allowed, or IP location",
@@ -30,6 +35,7 @@ namespace OfficeWires.Data
                 },
                 new WebApp
                 {
+                    Description="The OfficeWiresApp is itself a cloud-hosted ASP.NET proof-of-concept web application to provide authenticated uses quick access to currently active development projects and their status updates. https://officewires.azurewebsites.net/",
                     Name = "Whiteboard Tech Challenge",
                 },
                 new WebApp
