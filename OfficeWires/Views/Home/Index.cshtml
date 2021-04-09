@@ -21,9 +21,9 @@
     </div>
 
     <div class="row">
-        @foreach (var w in Model)
-        {
-        <div class="col-lg-3 col-md-6 col-12 pt-2">
+            @foreach (var w in Model)
+            {
+        <div class="col-lg-3 col-md-6 col-12 pt-2 d-flex align-items-stretch">
             <div class="card shadow" id="@w.Name">
                 <div class="card-header text-center pt-4 ">
                     <div class="card-actions float-right">
@@ -42,11 +42,11 @@
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 @if (w.GitHubUrl != null)
-                        {
-                                <a class="dropdown-item" href="@w.GitHubUrl" target="_blank">View Source</a>}
+                                {
+                <a class="dropdown-item" href="@w.GitHubUrl" target="_blank">View Source</a>}
                                 @if (w.URL != null)
-                        {
-                                <a class="dropdown-item" href="@w.URL" target="_blank">GoTo...</a>}
+                                {
+                <a class="dropdown-item" href="@w.URL" target="_blank">GoTo...</a>}
                                 <div class="dropdown-divider"></div>
                                 @*<a class="dropdown-item">@(w.IsRunning == true ? "up" : "down")</a>*@
                             </div>
