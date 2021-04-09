@@ -17,6 +17,11 @@ namespace OfficeWires.Data
             if (context.WebApps.Any()) return;
 
             var apps = new WebApp[] {
+                new WebApp
+                {
+                    Name = "OfficeWires",
+                    Description = ""
+                },
                 new WebApp {
                     Name = "Locate",
                     Description = "GoogleMaps integration demonstration webapp. Display the user's browser location if allowed, or IP location",
