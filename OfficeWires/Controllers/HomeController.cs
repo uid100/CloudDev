@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using OfficeWires.Data;
 using OfficeWires.Models;
+using System.Threading.Tasks;
 
 namespace OfficeWires.Controllers
 {
@@ -13,8 +15,12 @@ namespace OfficeWires.Controllers
             _AppDb = context;
         }
 
-        public ViewResult Index() => View(_AppDb.WebApps.OrderBy(a=>a.Name).ToArray());
+        public ViewResult IndexDb() => View("IndexDb", _AppDb.WebApps.OrderBy(a=>a.Name).ToArray());
 
-        public ViewResult Index1() => View();       
+        public async Task<ViewResult> Index() => View(await ProjectBoards.ProjectList());
+
+        public ViewResult Index1() => View();
+
+        public string DisplayResult(string result) => result;
     }
 }
