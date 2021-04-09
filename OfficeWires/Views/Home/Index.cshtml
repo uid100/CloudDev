@@ -4,35 +4,49 @@
 
 
 <div class="container p-0">
-    <h1 class="h3 mb-3">Projects</h1>
+    <a href="#">
+        <h1 class="h3 mb-3">
+            Code Projects
+            <img src="~/images/tabletapps.png" />
+        </h1>
+    </a>
 
     <div class="row">
         @foreach (var w in Model)
         {
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card" id="@w.Name">
-                    <div class="card-header px-4 pt-4">
+            <div class="col-lg-3 col-md-6 col-12 pt-2">
+                <div class="card shadow" id="@w.Name">
+                    <div class="card-header text-center pt-4 ">
                         <div class="card-actions float-right">
                             <div class="dropdown show">
-                                <a href="#" data-toggle="dropdown" data-diplay="static">
-                                    <svg 
-                                         xmlns="http://www.w3.org/2000/svg" 
-                                         width="24" height="24" viewBox="0 0 24 24" 
-                                         fill="none" stroke="currentColor" stroke-width="2" 
-                                         stroke-linecap="round" stroke-linejoin="round" 
+                                <div href="#" data-toggle="dropdown" data-diplay="static">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2"
+                                         stroke-linecap="round" stroke-linejoin="round"
                                          class="feather feather-more-horizontal align-middle">
                                         <circle cx="12" cy="12" r="1"></circle>
                                         <circle cx="19" cy="12" r="1"></circle>
-                                        <circle cx="5" cy="12" r="1"></circle></svg>
-                                </a>
+                                        <circle cx="5" cy="12" r="1"></circle>
+                                    </svg>
+                                </div>
 
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-item" href="@w.SourceLoc">View Source</div>
-                                    <div class="dropdown-item" href="@w.URL">GoTo...</div>
-                                    <div class="dropdown-item" href="#">@(w.IsRunning == true ? "up" : "down")</div>
+                                    @if (w.SourceLoc != null)
+                                    {
+                                        <a class="dropdown-item" href="@w.SourceLoc" target="_blank">View Source</a>
+                                    }
+                                    @if (w.URL != null)
+                                    {
+                                        <a class="dropdown-item" href="@w.URL" target="_blank">GoTo...</a>
+                                    }
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item">@(w.IsRunning == true ? "up" : "down")</a>
                                 </div>
                             </div>
                         </div>
+                        <p>&nbsp;</p>
+                        <img src="@Url.Content(w.ImagePath)" class="img-fluid avatar avatar-medium shadow rounded-pill" alt="" />
                         <h5 class="card-title mb-0">@w.Name</h5>
                     </div>
 

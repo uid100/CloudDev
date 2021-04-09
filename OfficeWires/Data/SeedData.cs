@@ -21,21 +21,25 @@ namespace OfficeWires.Data
                     Name = "Locate",
                     Description = "GoogleMaps integration demonstration webapp. Display the user's browser location if allowed, or IP location",
                     URL = "https://findme.azurewebsites.net",
-                    SourceLoc = "https://github.com/uid100/GeoLocateWeb"
+                    SourceLoc = "https://github.com/uid100/GeoLocateWeb",
+                    ImagePath = "~/images/Map3.png"
                 },
                 new WebApp
                 {
                     Name = "RateCalculator",
                     Description = "Find and display GSA per diem rates and other user location details for contract calculations",
+                    ImagePath = "~/images/currencycalculator.png"
                 },
                 new WebApp
                 {
-                    Name = "Whiteboard Tech Challenge",
+                    Name = "Miscellaneous",
+                    ImagePath = "~/images/sketch.png"
                 },
                 new WebApp
                 {
                     Name = "CheckedIn",
-                    Description = "Engage Distance Learning students with online prompts. Generates emailed reports and requires integration with Canvas API."
+                    Description = "Engage Distance Learning students with online prompts. Generates emailed reports and requires integration with Canvas API.",
+                    ImagePath = "~/images/sketch.png"
                 },
             };
 

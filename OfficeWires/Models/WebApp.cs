@@ -13,6 +13,7 @@ namespace OfficeWires.Models
         public string URL { get; set; }
         public string SourceLoc { get; set; }
         public bool IsRunning { get; set; } = false;
+        public string ImagePath { get; set; }
 
         //public static WebApp[] GetWebApps()
         //{
