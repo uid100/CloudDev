@@ -1,3 +1,4 @@
+![icon](https://raw.githubusercontent.com/uid100/CloudDev/master/images/newsoffice.png)
 # CloudDev
 
 ASP.NET Cloud Application Projects
@@ -13,12 +14,14 @@ status updates.
 -------------------
 
 ## Updates
-### 9 Mar 2021
+### Mar 2021
    - Initial build.
    - Added bootstrap card styling to views
    - Created Mock data within Models folder
    - Migrated Mock data source to use sqlite
    - Published to no-cost Azure web service, including serverless database
+   - successfully integrated with deployed sqlite database file on free app service depoy tier
+   - migrated data display from mock data to static (sqlite) database, to live 
 
 
    [TOC](#TOC)
