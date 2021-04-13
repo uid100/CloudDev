@@ -4,6 +4,7 @@ using System.Linq;
 using OfficeWires.Data;
 using OfficeWires.Models;
 using System.Threading.Tasks;
+using System;
 
 namespace OfficeWires.Controllers
 {
@@ -17,7 +18,11 @@ namespace OfficeWires.Controllers
 
         public ViewResult IndexDb() => View("IndexDb", _AppDb.WebApps.OrderBy(a=>a.Name).ToArray());
 
-        public async Task<ViewResult> Index() => View(await ProjectBoards.ProjectList());
+        public async Task<ViewResult> Index()
+        {
+            string u = Request.Query["u"];
+            return View(await ProjectBoards.ProjectList( String.IsNullOrEmpty(u) ? "uid100" : u));
+        }
 
         public ViewResult Index1() => View();
 

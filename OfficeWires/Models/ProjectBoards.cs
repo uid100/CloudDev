@@ -10,7 +10,7 @@ namespace OfficeWires.Models
 {
     public class ProjectBoards
     {
-        static public async Task<IEnumerable<ProjectBoard>> ProjectList( string userId = "uid100" )
+        static public async Task<IEnumerable<ProjectBoard>> ProjectList( string userId )
         {
             List<ProjectBoard> boards = new List<ProjectBoard>();
             HttpClient GithubAPI = new HttpClient();
