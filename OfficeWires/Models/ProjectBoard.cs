@@ -13,6 +13,9 @@ namespace OfficeWires.Models
         [JsonPropertyName("html_url")]
         public string GitHubUrl { get; set; }
 
+        [JsonPropertyName("default_branch")]
+        public string WorkingBranch { get; set; }
+
         public string URL { get; set; }
         public string ImageTitle { get; set; }
 

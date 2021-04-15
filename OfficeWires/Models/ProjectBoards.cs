@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -43,30 +44,64 @@ namespace OfficeWires.Models
             {
                 if( boards[i].GitHubUrl.Length > 1 ) 
                 {
-                    boards[i].ImageTitle = await imageFileName_Async(userId, boards[i].Name);
+                    boards[i].ImageTitle = await imageFileName_Async(userId, boards[i]);
+                    boards[i].URL = await appLinkUrl_Async(userId, boards[i]);
                 }
             }
 
             return boards;
         }
 
-        static async Task<string> imageFileName_Async(string owner, string projectName)
+        static async Task<string> imageFileName_Async(string owner, ProjectBoard proj)
         {
             HttpClient ReadmeContent = new HttpClient();
             HttpResponseMessage resp = null;
 
+            // string breakpoint = proj.Name;
+
             ReadmeContent.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
-            resp = await ReadmeContent.GetAsync($"https://raw.githubusercontent.com/{owner}/{projectName}/master/README.md");
+            resp = await ReadmeContent.GetAsync($"https://raw.githubusercontent.com/{owner}/{proj.Name}/{proj.WorkingBranch}/README.md");
 
             if (resp.IsSuccessStatusCode)
             {
                 string line = await resp.Content.ReadAsStringAsync();
 
-                if (line.Contains("![icon]"))
+                //if (line.Contains("![icon]"))
+                if (line.Contains("!["))
                 {
                     int start = line.IndexOf('(') + 1;
                     int len = line.IndexOf(')') - start;
                     return line.Substring(start, len);
+                }
+            }
+
+            return "";
+        }
+
+        static async Task<string> appLinkUrl_Async(string owner, ProjectBoard proj)
+        {
+            HttpClient ReadmeContent = new HttpClient();
+            HttpResponseMessage resp = null;
+
+            // string breakpoint = proj.Name;
+
+            ReadmeContent.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
+            resp = await ReadmeContent.GetAsync($"https://raw.githubusercontent.com/{owner}/{proj.Name}/{proj.WorkingBranch}/README.md");
+
+            if (resp.IsSuccessStatusCode)
+            {
+                StringReader readme = new StringReader(await resp.Content.ReadAsStringAsync());
+
+                while(true)
+                {
+                    string line = readme.ReadLine();
+                    if (line == null) break;
+                    if (line.Contains("[url]"))
+                    {
+                        int start = line.IndexOf('(') + 1;
+                        int len = line.IndexOf(')') - start;
+                        return line.Substring(start, len);
+                    }
                 }
             }
 

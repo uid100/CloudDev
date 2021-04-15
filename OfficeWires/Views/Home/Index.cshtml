@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<ProjectBoard>
 @*ref: https://www.bootdey.com/snippets/view/project-cards*@
 
-@{ Layout = "_Layout";
-                ViewBag.Title = "Development Solutions"; }
+@{ 
+    Layout = "_Layout";
+    ViewBag.Title = "Development Solutions"; 
+}
 
 <div class="container p-0">
     <a href="#">
@@ -11,10 +13,20 @@
             Code Projects
         </h1>
     </a>
-        <p class="col-3 col-md-2 float-right text-center">GitHub public repositories:</p>
-    
 
-    <div class="card" style="margin:20px 10px 20px 10px;">
+    <p id="description" style="background-color:khaki; padding: 0px 5px 0px 5px;">
+        This is an overview of public Github repositories for user {?u=userid}. The app uses
+        bootstrap styling and builds the set from the Github API and displays the description 
+        field and decorates each with the first image included in the README.md if available.
+        The context menu(s) has links to the source in github and the app when included in the
+        readme marked with the text link "url". 
+    </p>
+
+    <p id="subtitle" class="col-3 col-md-2 float-right text-center">
+        GitHub public repositories:
+    </p>
+    
+    <div id="github-zen" class="card" style="margin:20px 10px 20px 10px;">
         <div class="card-title" style="font-weight:bolder"><em>GitHub</em> Zen</div>
         <div class="card-text" id="zen"></div>
         <div class="card-subtitle text-muted" style="font-style:italic; font-size:x-small; text-align:right;">https://api.github.com/zen</div>
@@ -45,9 +57,9 @@
                                         @if (w.GitHubUrl != null)
                                         {
                         <a class="dropdown-item" href="@w.GitHubUrl" target="_blank">View Source</a>}
-                                        @if (w.URL != null)
+                                        @if (w.URL.Length > 1)
                                         {
-                        <a class="dropdown-item" href="@w.URL" target="_blank">GoTo...</a>}
+                        <a class="dropdown-item" href="@w.URL" target="_blank">GoTo...(@w.URL)</a>}
                                         <div class="dropdown-divider"></div>
                                         @*<a class="dropdown-item">@(w.IsRunning == true ? "up" : "down")</a>*@
                                     </div>
